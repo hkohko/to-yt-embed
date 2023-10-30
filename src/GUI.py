@@ -31,7 +31,7 @@ def logic(window: Window, gui: GUI) -> None:
 
 def main() -> None:
     gui = GUI()
-    window = sG.Window("to_embed", layout=gui.layout)
+    window = sG.Window("embed", layout=gui.layout)
 
     while True:
         event, values = window.read()
