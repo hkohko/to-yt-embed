@@ -1,4 +1,4 @@
-# yt_link_converter
+# to-yt-embed
 ![Imgur](https://imgur.com/uB4NB8t.png)  
 An app whose purpose in life is to convert youtube links into,
 youtube *embed* links.
