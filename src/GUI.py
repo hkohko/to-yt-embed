@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from pathlib import Path
 from webbrowser import open_new_tab
 
 import pyperclip
@@ -6,6 +7,12 @@ import PySimpleGUI as sG
 from PySimpleGUI import Window
 
 from yt_link_converter.ytvid_replace import main as convert_link
+
+PROJ_DIR = Path(__file__).parents[1]
+SRC_DIR = Path(__file__).parents[0]
+ASSET_DIR = SRC_DIR.joinpath("asset")
+ICON = ASSET_DIR.joinpath("yt-embed-logo.ico")
+TITLE_ICON = ASSET_DIR.joinpath("yt-embed-logo-tiny.ico")
 
 
 @dataclass
@@ -51,7 +58,15 @@ def logic(event: str, window: Window, gui: GUI) -> None:
 
 def main() -> None:
     gui = GUI()
-    window = sG.Window(gui.title, layout=gui.layout)
+    window = sG.Window(
+        gui.title,
+        layout=gui.layout,
+        use_custom_titlebar=True,
+        titlebar_font="UbuntuMono",
+        titlebar_background_color="Black",
+        icon=str(ICON),
+        titlebar_icon=str(TITLE_ICON),
+    )
 
     while True:
         event, values = window.read()
